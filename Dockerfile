@@ -1,7 +1,7 @@
-ARG VERSION_NAME=python
-FROM ${VERSION_NAME}
-WORKDIR /python
-COPY . /python
+FROM python
+WORKDIR /app
+COPY paragraphs.txt /app/
+COPY Python1.py /app/
 RUN pip install nltk
-RUN python -m nltk downloader stopwords punkt
-CMD [ "python", "python.py" ]
+RUN python -m nltk.downloader stopwords punkt
+CMD ["python", "Python1.py"]
